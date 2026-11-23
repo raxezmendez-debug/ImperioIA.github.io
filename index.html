@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Imperio IA: Academia de Ecommerce y Automatización</title>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a1022;--panel:#121a35;--line:#26325c;--tx:#e8ecff;--mu:#9aa6d6;--cy:#3de0ff;--go:#ffc857;--vi:#8b7bff;--ok:#4ade80;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="dark"]{--bg:#0a1022;--panel:#121a35;--line:#26325c;--tx:#e8ecff;--mu:#9aa6d6;--cy:#3de0ff;--go:#ffc857;--vi:#8b7bff;--ok:#4ade80}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f3f5ff;--panel:#fff;--line:#d3daf5;--tx:#141a38;--mu:#4c5886;--cy:#0a7fa0;--go:#a56d00;--vi:#5b49d6;--ok:#15803d}}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 Outfit,system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+h1,h2,h3,.f{font-family:"Chakra Petch",system-ui,sans-serif;line-height:1.15;margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cy);outline-offset:2px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px 22px;background:var(--bg);border-bottom:1px solid var(--line)}
+.top nav{display:flex;gap:16px;overflow-x:auto;font-size:.92rem}.top nav a{text-decoration:none;color:var(--mu);white-space:nowrap}.top nav a:hover{color:var(--cy)}
+.logo{font-weight:700;font-size:1.15rem;white-space:nowrap}.logo b{color:var(--go)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+section{padding:64px 0 8px}
+h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-bottom:8px}.lead{color:var(--mu);max-width:62ch;margin:0 0 22px}
+.hero{padding:56px 0 24px;display:grid;grid-template-columns:1.2fr 1fr;gap:34px;align-items:center}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.6rem)}
+.btn{display:inline-block;margin-top:20px;padding:12px 22px;border-radius:8px;background:var(--cy);color:#04101c;font-weight:600;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:600}
+.me{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+.me .lv{font-size:2.6rem;color:var(--go)}
+.bar{height:12px;border-radius:99px;background:var(--line);overflow:hidden;margin:10px 0 6px}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cy),var(--vi));transition:width .5s}
+.mu{color:var(--mu);font-size:.9rem}
+.map{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:10px 0 18px}
+.node{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 10px;text-align:left;color:var(--tx);cursor:pointer;font:inherit;position:relative}
+.node:hover{border-color:var(--cy)}.node[aria-pressed=true]{border-color:var(--go);box-shadow:0 0 0 1px var(--go)}
+.node .n{font-family:"Chakra Petch";font-size:1.5rem;color:var(--cy)}.node small{display:block;color:var(--mu);line-height:1.3}
+.node .p{position:absolute;right:10px;top:10px;font-size:.78rem;color:var(--ok)}
+.det{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+.box h3{font-size:1.1rem;margin-bottom:8px;color:var(--go)}.box ul{margin:0;padding-left:18px}
+.tasks label{display:flex;gap:10px;padding:6px 0;cursor:pointer}.tasks input{accent-color:var(--cy);width:18px;height:18px;margin-top:3px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{border:1px solid var(--line);border-radius:99px;padding:2px 10px;font-size:.85rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}.stats div{border:1px solid var(--line);border-radius:10px;padding:8px 10px}.stats b{display:block;color:var(--cy)}
+.upd{display:flex;flex-wrap:wrap;gap:8px 18px;border-left:3px solid var(--ok);background:var(--panel);padding:10px 14px;border-radius:0 10px 10px 0;margin:22px 0 0;font-size:.88rem;color:var(--mu)}.upd b{color:var(--ok)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.93rem}th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--panel);color:var(--go);font-family:"Chakra Petch"}tr:last-child td{border:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.cards .box h3{color:var(--cy)}
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;margin:6px 0}.step{flex:1 1 150px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;position:relative}.step b{color:var(--go);font-family:"Chakra Petch"}.step small{display:block;color:var(--mu);line-height:1.35}
+.dia{width:100%;height:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px}
+.dia text{fill:var(--tx);font:13px Outfit,sans-serif}.dia .a{fill:var(--bg);stroke:var(--cy)}.dia .c{fill:var(--bg);stroke:var(--go);stroke-width:2}.dia line{stroke:var(--line);stroke-width:2}
+footer{margin-top:70px;padding:26px 22px;border-top:1px solid var(--line);color:var(--mu);text-align:center;font-size:.88rem}
+@media(max-width:780px){.hero,.det{grid-template-columns:1fr}.map{grid-template-columns:repeat(2,1fr)}.top nav{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.cover{text-align:center;padding:34px 22px;background:linear-gradient(160deg,var(--panel),var(--bg));border:1px solid var(--line);border-radius:16px}.cover .big{font-size:clamp(1.5rem,4vw,2.4rem);color:var(--go);margin:6px 0}.cover .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:18px;text-align:left}
+input.in{width:100%;padding:9px 11px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--tx);font:inherit}label.fl{font-size:.85rem;color:var(--mu);display:block}
+pre.pr{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;font:.88rem/1.5 ui-monospace,monospace;margin:10px 0}
+.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.day{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;display:block;cursor:pointer}.day b{color:var(--go);font-family:"Chakra Petch";display:block}.day input{accent-color:var(--cy);width:18px;height:18px;float:right}
+</style>
+</head>
+<body>
+<header class="top"><div class="logo f">Imperio<b>IA</b></div>
+<nav><a href="#niveles">Niveles</a><a href="#modelos">Modelos</a><a href="#ia">IA</a><a href="#agentes">Multi-agente</a><a href="#agencia">Agencia</a><a href="#ads">Marketing</a><a href="#contenido">Contenido</a><a href="#empieza">Empieza ya</a><a href="#primer-agente">Tu primer agente</a><a href="#portada">Portada</a></nav></header>
+
+<main class="wrap">
+<div class="hero">
+<div><h1>Construye un negocio de ecommerce que opera con IA</h1>
+<p class="lead">Diez niveles que te llevan de montar tu primera tienda a dirigir un sistema de agentes y una agencia. Completa tareas, gana XP y desbloquea el siguiente nivel.</p>
+<a class="btn" href="#niveles">Empezar el nivel 1</a></div>
+<div class="me" aria-live="polite"><div class="mu">Tu rango actual</div><div class="lv f" id="rank">Nivel 1</div><div id="rname" class="f"></div>
+<div class="bar"><i id="xpbar"></i></div><div class="mu" id="xptxt"></div></div>
+</div>
+
+<section id="portada"><div class="cover"><div class="mu">Proyecto de formación · SENA</div><h2 class="big f">Imperio IA: Academia de Ecommerce y Automatización</h2><div class="f" id="cvname"></div><div class="mu"><span id="cvfi"></span> · <span id="cvins"></span> · <span id="cvd"></span></div>
+<div class="row"><div><label class="fl" for="cvn">Tu nombre</label><input class="in" id="cvn" autocomplete="name"></div><div><label class="fl" for="cvf">Ficha</label><input class="in" id="cvf"></div><div><label class="fl" for="cvi">Instructor</label><input class="in" id="cvi"></div></div><p class="mu">Escribe tus datos y se muestran en la portada. Se guardan solo en este navegador.</p></div></section>
+<section id="niveles"><h2>Mapa de niveles</h2><p class="lead">Elige un nivel para ver objetivos, herramientas, costos y tareas. Tu progreso se guarda en este navegador.</p>
+<div class="map" id="map"></div><div class="det" id="det"></div>
+<div class="upd"><span><b>Vigente</b></span><span>Actualizado: noviembre 2026</span><span>Costos: estimaciones en USD, verifica precios actuales de cada herramienta</span></div></section>
+
+<section id="modelos"><h2>Modelos de ecommerce</h2><p class="lead">Compara los siete modelos principales antes de elegir con cuál empezar. Los rangos son orientativos.</p>
+<div class="tw"><table><thead><tr><th>Modelo</th><th>Dificultad</th><th>Inversión inicial</th><th>Riesgo principal</th><th>Ayuda de IA</th></tr></thead><tbody>
+<tr><td>Dropshipping</td><td>Media</td><td>$300 – $1.500</td><td>Márgenes bajos, envíos lentos y devoluciones</td><td>Investigación de producto, textos, anuncios</td></tr>
+<tr><td>Marca propia de ecommerce</td><td>Alta</td><td>$2.000 – $10.000</td><td>Construir confianza y retener clientes</td><td>Posicionamiento, contenido, email</td></tr>
+<tr><td>Private label</td><td>Alta</td><td>$3.000 – $15.000</td><td>Inventario inmovilizado, calidad del proveedor</td><td>Análisis de reseñas y competencia</td></tr>
+<tr><td>Print on demand</td><td>Baja</td><td>$50 – $500</td><td>Competencia alta, diferenciación difícil</td><td>Diseños, mockups, listados</td></tr>
+<tr><td>Ecommerce automatizado</td><td>Media</td><td>$500 – $3.000</td><td>Automatizar procesos que aún no funcionan</td><td>Flujos con agentes, atención al cliente</td></tr>
+<tr><td>Ventas digitales</td><td>Media</td><td>$0 – $500</td><td>Necesitas una oferta y audiencia propias</td><td>Creación de producto, embudos</td></tr>
+<tr><td>Modelo híbrido</td><td>Alta</td><td>Variable</td><td>Dispersión del foco</td><td>Orquestación entre canales</td></tr></tbody></table></div>
+<div class="upd"><span><b>Vigente</b></span><span>Actualizado: noviembre 2026</span><span>Herramientas: Shopify, Printful, Printify, Gumroad</span></div></section>
+
+<section id="ia"><h2>IA aplicada al ecommerce</h2><p class="lead">Siete usos concretos que mejoran rentabilidad, costos y velocidad.</p>
+<div class="cards">
+<div class="box"><h3>Aumentar rentabilidad</h3><p>Calcula margen real por producto, ajusta precios y detecta qué anuncios pierden dinero. Herramientas: hojas con asistentes de IA, Claude, ChatGPT.</p></div>
+<div class="box"><h3>Reducir costos</h3><p>Sustituye tareas de diseño, redacción y soporte de primer nivel por flujos asistidos. Herramientas: n8n, Make, Zapier.</p></div>
+<div class="box"><h3>Automatizar tareas</h3><p>Estados de pedido, reseñas, recuperación de carritos y reportes semanales sin intervención manual.</p></div>
+<div class="box"><h3>Escalar más rápido</h3><p>Prueba muchas variaciones de creativos a la vez y duplica solo lo que ya convierte.</p></div>
+<div class="box"><h3>Subir conversiones</h3><p>Descripciones por segmento, pruebas A/B de ofertas, chat de compra guiada y búsqueda interna inteligente.</p></div>
+<div class="box"><h3>Analizar competidores</h3><p>Resume reseñas, ofertas y anuncios públicos (Meta Ad Library) para encontrar huecos de mercado.</p></div>
+<div class="box"><h3>Optimizar anuncios</h3><p>Campañas automatizadas de las plataformas (Advantage+, Performance Max, Symphony) más análisis propio de resultados.</p></div></div>
+<div class="upd"><span><b>Vigente</b></span><span>Actualizado: noviembre 2026</span><span>Las funciones de las plataformas cambian cada pocos meses: confirma en su documentación</span></div></section>
+
+<section id="agentes"><h2>Sistema multi-agente</h2><p class="lead">Un sistema multi-agente reparte el trabajo entre varios agentes de IA especializados. Un coordinador asigna tareas, junta resultados y te pide aprobación en las decisiones importantes. Así el negocio avanza las 24 horas con supervisión humana.</p>
+<svg class="dia" viewBox="0 0 760 330" role="img" aria-label="Un coordinador conectado a seis agentes: investigador, marketing, contenido, datos, atención al cliente y automatización">
+<g><line x1="380" y1="165" x2="110" y2="60"/><line x1="380" y1="165" x2="380" y2="40"/><line x1="380" y1="165" x2="650" y2="60"/><line x1="380" y1="165" x2="110" y2="270"/><line x1="380" y1="165" x2="380" y2="295"/><line x1="380" y1="165" x2="650" y2="270"/></g>
+<g text-anchor="middle"><rect class="c" x="300" y="135" width="160" height="60" rx="12"/><text x="380" y="160">Coordinador</text><text x="380" y="180">(tú aprueba)</text>
+<rect class="a" x="40" y="35" width="140" height="50" rx="10"/><text x="110" y="64">1 Investigador</text>
+<rect class="a" x="310" y="15" width="140" height="50" rx="10"/><text x="380" y="44">2 Marketing</text>
+<rect class="a" x="580" y="35" width="140" height="50" rx="10"/><text x="650" y="64">3 Contenido</text>
+<rect class="a" x="40" y="245" width="140" height="50" rx="10"/><text x="110" y="274">4 Analista de datos</text>
+<rect class="a" x="310" y="270" width="140" height="50" rx="10"/><text x="380" y="299">5 Atención al cliente</text>
+<rect class="a" x="580" y="245" width="140" height="50" rx="10"/><text x="650" y="274">6 Automatización</text></g></svg>
+<div class="flow" style="margin-top:14px">
+<div class="step"><b>1 Investigador</b><small>Busca productos, tendencias y competidores. Entrega un informe diario.</small></div>
+<div class="step"><b>2 Marketing</b><small>Define ofertas y públicos, propone presupuesto y campañas.</small></div>
+<div class="step"><b>3 Contenido</b><small>Produce guiones, imágenes, textos y publicaciones.</small></div>
+<div class="step"><b>4 Datos</b><small>Lee ventas y anuncios, calcula ROAS y avisa de anomalías.</small></div>
+<div class="step"><b>5 Atención</b><small>Responde preguntas frecuentes y escala casos difíciles a una persona.</small></div>
+<div class="step"><b>6 Automatización</b><small>Conecta herramientas y ejecuta tareas repetitivas.</small></div></div>
+<p class="mu">Ventajas: especialización, trabajo en paralelo y costo bajo. Casos de uso: lanzar productos, soporte 24/7 y reportes automáticos. Regla de oro: los pagos, el gasto publicitario y los mensajes a clientes con problemas pasan por aprobación humana.</p>
+<div class="upd"><span><b>Vigente</b></span><span>Actualizado: noviembre 2026</span><span>Tecnologías: Claude, n8n, Make, MCP, APIs de Shopify y Meta</span></div></section>
+
+<section id="agencia"><h2>Agencia de IA</h2><p class="lead">Vende a otros negocios las automatizaciones que ya dominas en el tuyo.</p>
+<div class="flow"><div class="step"><b>Nicho</b><small>Elige un sector concreto.</small></div><div class="step"><b>Oferta</b><small>Un servicio claro con resultado medible.</small></div><div class="step"><b>Prospección</b><small>Contacto directo y demostraciones.</small></div><div class="step"><b>Entrega</b><small>Plantillas y flujos reutilizables.</small></div><div class="step"><b>Retención</b><small>Mantenimiento mensual.</small></div></div>
+<div class="tw" style="margin-top:14px"><table><thead><tr><th>Servicio</th><th>Precio de instalación</th><th>Mensualidad</th></tr></thead><tbody>
+<tr><td>Chatbot de atención y ventas</td><td>$500 – $2.000</td><td>$100 – $500</td></tr>
+<tr><td>Automatización de procesos</td><td>$500 – $3.000</td><td>$150 – $600</td></tr>
+<tr><td>Contenido con IA para redes</td><td>$300 – $1.000</td><td>$400 – $1.500</td></tr>
+<tr><td>Gestión de anuncios con IA</td><td>$300 – $800</td><td>$500 – $2.500 + comisión</td></tr></tbody></table></div>
+<p class="mu">Rangos de referencia; ajústalos a tu mercado y al valor que generes. Herramientas: n8n, Make, un CRM, contratos y facturación. Escala creando plantillas, documentando procesos y contratando soporte antes que más clientes.</p>
+<div class="upd"><span><b>Vigente</b></span><span>Actualizado: noviembre 2026</span><span>Los precios dependen del país y del cliente</span></div></section>
+
+<section id="ads"><h2>Marketing digital por plataforma</h2>
+<div class="tw"><table><thead><tr><th>Plataforma</th><th>Úsala cuando</th><th>Presupuesto de prueba</th><th>Error común</th><th>IA útil</th></tr></thead><tbody>
+<tr><td>Facebook e Instagram Ads</td><td>Producto visual con público definido</td><td>$10 – $30 al día</td><td>Cambiar campañas cada día</td><td>Advantage+, variantes de creativos</td></tr>
+<tr><td>TikTok Ads</td><td>Producto que se explica en video corto</td><td>$20 – $50 al día</td><td>Anuncios que parecen anuncios</td><td>Guiones y editores de video con IA</td></tr>
+<tr><td>Google Ads</td><td>Hay gente buscando tu producto</td><td>$15 – $40 al día</td><td>Palabras clave demasiado amplias</td><td>Performance Max, textos adaptativos</td></tr>
+<tr><td>YouTube Ads</td><td>Producto que necesita demostración</td><td>$15 – $40 al día</td><td>Introducción lenta</td><td>Guiones, subtítulos, miniaturas</td></tr>
+<tr><td>Marketplace</td><td>Productos locales o de segunda mano</td><td>Gratis o muy bajo</td><td>Fotos y títulos pobres</td><td>Descripciones y respuestas rápidas</td></tr>
+<tr><td>Amazon</td><td>Private label con demanda probada</td><td>$10 – $30 al día en anuncios</td><td>Lanzar sin reseñas ni stock</td><td>Análisis de reseñas y palabras clave</td></tr>
+<tr><td>Etsy</td><td>Productos únicos, personalizados o POD</td><td>$1 – $5 al día</td><td>Etiquetas genéricas</td><td>Títulos, etiquetas, diseños</td></tr></tbody></table></div>
+<p class="mu">Presupuestos y costos varían mucho por país y nicho. Empieza con el mínimo, mide durante varios días antes de decidir y escala solo cuando el margen lo permita.</p>
+<div class="upd"><span><b>Vigente</b></span><span>Actualizado: noviembre 2026</span><span>Las plataformas cambian sus herramientas con frecuencia</span></div></section>
+
+<section id="contenido"><h2>Creación de contenido con IA</h2><p class="lead">Un flujo repetible convierte una idea en publicaciones listas para varias redes.</p>
+<div class="flow"><div class="step"><b>Idea</b><small>El investigador detecta temas y ganchos.</small></div><div class="step"><b>Guion</b><small>Un modelo de lenguaje escribe versiones cortas.</small></div><div class="step"><b>Imagen y video</b><small>Generadores de imagen y video, más voz sintética.</small></div><div class="step"><b>Edición</b><small>Subtítulos, formato vertical y música.</small></div><div class="step"><b>Revisión</b><small>Tú apruebas marca y veracidad.</small></div><div class="step"><b>Publicación</b><small>Programación automática en cada red.</small></div></div>
+<p class="mu">Herramientas habituales: ChatGPT, Claude, Gemini, Midjourney, Runway, ElevenLabs, CapCut, Canva, Buffer. Revisa siempre el contenido antes de publicar y respeta las reglas de cada red sobre material generado con IA.</p>
+<div class="upd"><span><b>Vigente</b></span><span>Actualizado: noviembre 2026</span><span>Este es el área que más rápido cambia</span></div></section>
+<section id="empieza"><h2>Empieza esta semana</h2><p class="lead">Plan de 7 días con presupuesto de $0 a $50. Se usan modelos de baja inversión (print on demand o productos digitales) porque no exigen inventario ni mucha publicidad. Marca cada día al terminarlo.</p><div class="days" id="plan"></div>
+<p class="mu">Esto no promete ingresos: la primera semana sirve para probar una idea con poco riesgo. Verifica comisiones y costos actuales de cada plataforma antes de pagar algo, y no uses dinero que necesite la familia.</p>
+<div class="upd"><span><b>Vigente</b></span><span>Actualizado: noviembre 2026</span><span>Herramientas: Etsy, Printful o Printify, Canva, ChatGPT o Claude, Google Trends</span></div></section>
+<section id="primer-agente"><h2>Tu primer agente de IA, paso a paso</h2><p class="lead">Empieza por el agente de atención al cliente: es el más simple, repite tareas y se puede supervisar fácil.</p>
+<div class="flow"><div class="step"><b>1 Rol</b><small>Define qué hace y qué NO hace.</small></div><div class="step"><b>2 Instrucciones</b><small>Escribe el prompt con reglas y tono.</small></div><div class="step"><b>3 Prueba en chat</b><small>Hazle 10 preguntas reales de clientes.</small></div><div class="step"><b>4 Conecta</b><small>Con n8n o Make: formulario o correo entra, la IA responde.</small></div><div class="step"><b>5 Aprobación</b><small>Tú revisas respuestas dudosas antes de enviar.</small></div><div class="step"><b>6 Mide</b><small>Registra aciertos y errores en una hoja.</small></div></div>
+<div class="box" style="margin-top:14px"><h3>Prompt de ejemplo para copiar</h3><pre class="pr" id="ptxt">Eres el asistente de atención al cliente de [nombre de la tienda].
+Responde en español, con tono amable y claro, en máximo 5 líneas.
+Usa solo esta información: [envíos, plazos, devoluciones, precios].
+Si no sabes la respuesta, o el cliente está molesto, o pide un reembolso, responde: «Voy a pasar tu caso a una persona del equipo» y marca el mensaje como ESCALAR.
+Nunca inventes datos, plazos ni promesas.</pre><button class="btn" id="cp" type="button">Copiar prompt</button></div>
+<p class="mu">Pasos en n8n o Make: disparador (formulario, correo o chat) → nodo de IA con el prompt → filtro que detecta ESCALAR → envío de la respuesta o aviso a ti → fila en una hoja de cálculo. Los planes gratuitos y los límites cambian: confirma en la página de cada herramienta. Cuando funcione, repite el método con el agente investigador y el de contenido.</p>
+<div class="upd"><span><b>Vigente</b></span><span>Actualizado: noviembre 2026</span><span>Tecnologías: Claude o ChatGPT, n8n, Make, hojas de cálculo</span></div></section>
+</main>
+
+<footer>Aprendiz de ADSO: Cesar Augusto Mendez Garcia. Guía educativa. Los costos y resultados no están garantizados.</footer>
+<footer>© 2026 Imperio IA. Todos los derechos reservados. <a href="https://imperioia.com" target="_blank" rel="noopener">imperioia.com</a></footer>
+
+<script>
+const L=[
+["Recluta Digital","Entender cómo se vende online hoy y elegir tu modelo.",["Mentalidad de datos","Elegir modelo de negocio"],["ChatGPT o Claude","Hoja de cálculo"],"$0 – $50","1 semana",["Estudiar los 7 modelos","Elegir uno y justificarlo","Definir presupuesto y meta a 90 días"],"Plan de negocio de una página"],
+["Constructor de Tiendas","Tener una tienda online lista para vender.",["Configurar tienda","Pasarelas de pago","Políticas legales"],["Shopify","Pasarela de pago","Dominio"],"$50 – $300","2 semanas",["Crear la tienda","Configurar pagos y envíos","Publicar políticas","Hacer una compra de prueba"],"Tienda funcional"],
+["Cazador de Productos","Encontrar y validar productos con demanda y margen.",["Análisis de tendencias","Cálculo de márgenes"],["Google Trends","Meta Ad Library","Helium 10"],"$0 – $200","2 semanas",["Listar 20 ideas","Analizar competidores con IA","Calcular margen y logística","Pedir muestra de 2 productos"],"Producto validado"],
+["Maestro de Marketing","Conseguir las primeras ventas con tráfico pagado u orgánico.",["Campañas de anuncios","Embudos y CRO","Email marketing"],["Meta Ads","TikTok Ads","Klaviyo"],"$300 – $1.000","4 semanas",["Crear 5 creativos","Lanzar una campaña de prueba","Instalar píxel y seguimiento","Configurar email de carrito abandonado"],"Primeras ventas"],
+["Automatizador","Quitar de tu día las tareas repetitivas.",["Flujos sin código","Integraciones por API"],["n8n","Make","Zapier"],"$20 – $100 al mes","3 semanas",["Automatizar confirmación de pedidos","Automatizar reseñas","Crear un reporte semanal automático"],"Negocio con piloto automático parcial"],
+["Director IA","Dirigir herramientas de IA para contenido y análisis.",["Ingeniería de instrucciones","Contenido con IA","Análisis de datos con IA"],["Claude","Midjourney","Runway","ElevenLabs"],"$50 – $200 al mes","3 semanas",["Crear un sistema de prompts de marca","Producir 10 videos con IA","Analizar ventas con IA"],"Producción de contenido escalable"],
+["Arquitecto Multi-Agente","Montar los seis agentes y su coordinador.",["Diseño de agentes","Herramientas y permisos","Supervisión humana"],["Claude","n8n","MCP"],"$50 – $300 al mes","4 semanas",["Definir rol de cada agente","Conectarlos a tu tienda","Definir qué requiere aprobación","Probar una semana completa"],"Sistema multi-agente operativo"],
+["Dueño de Agencia IA","Vender tus servicios a otros negocios.",["Ventas consultivas","Contratos y precios","Entrega por plantillas"],["CRM","Contratos y facturación"],"$100 – $500","6 semanas",["Elegir nicho y oferta","Crear 2 demostraciones","Contactar 50 negocios","Cerrar el primer cliente"],"Primer cliente de agencia"],
+["Empresario Digital","Combinar tienda, agencia y contenido en varias fuentes de ingreso.",["Finanzas del negocio","Contratación","Procesos documentados"],["Contabilidad","Gestión de proyectos"],"Variable","3 meses",["Separar finanzas del negocio","Documentar procesos clave","Delegar una función"],"Negocio que funciona sin ti a diario"],
+["Imperio Automatizado","Operar un grupo de negocios con agentes y equipo pequeño.",["Escalamiento","Gobernanza de IA","Nuevos mercados"],["Panel de métricas","Agentes especializados"],"Variable","Continuo",["Panel único de métricas","Revisión mensual del sistema","Abrir un segundo mercado o canal"],"Imperio en expansión"]];
+let st={};try{st=JSON.parse(localStorage.getItem("imp")||"{}")}catch(e){}
+let cur=0;const $=i=>document.getElementById(i);
+const save=()=>{try{localStorage.setItem("imp",JSON.stringify(st))}catch(e){}};
+const pct=i=>{const t=L[i][6].length;let d=0;for(let k=0;k<t;k++)if(st[i+"-"+k])d++;return[d,t]};
+function stats(){let xp=0,lv=0;L.forEach((_,i)=>{const[d,t]=pct(i);xp+=d*10;if(d===t&&lv===i)lv=i+1});
+const r=Math.min(lv,9);$("rank").textContent="Nivel "+(r+1);$("rname").textContent=L[r][0];
+const[d,t]=pct(r);$("xpbar").style.width=(d/t*100)+"%";$("xptxt").textContent=xp+" XP · "+d+" de "+t+" tareas del nivel actual"}
+function map(){$("map").innerHTML=L.map((l,i)=>{const[d,t]=pct(i);return`<button class="node" aria-pressed="${i===cur}" data-i="${i}"><span class="n">${i+1}</span><span class="p">${d}/${t}</span><small>${l[0]}</small></button>`}).join("");
+document.querySelectorAll(".node").forEach(b=>b.onclick=()=>{cur=+b.dataset.i;render()})}
+function det(){const l=L[cur];$("det").innerHTML=`<div class="box"><h3>Nivel ${cur+1}: ${l[0]}</h3><p>${l[1]}</p>
+<div class="stats"><div><b>${l[4]}</b>Costo</div><div><b>${l[5]}</b>Tiempo</div><div><b>${l[6].length}</b>Tareas</div></div>
+<h3>Habilidades que desbloqueas</h3><ul>${l[2].map(s=>`<li>${s}</li>`).join("")}</ul>
+<h3 style="margin-top:14px">Herramientas</h3><div class="chips">${l[3].map(s=>`<span class="chip">${s}</span>`).join("")}</div></div>
+<div class="box tasks"><h3>Lista de tareas</h3>${l[6].map((t,k)=>`<label><input type="checkbox" data-k="${k}" ${st[cur+"-"+k]?"checked":""}><span>${t}</span></label>`).join("")}
+<h3 style="margin-top:14px">Recompensa</h3><p>${l[7]} · +${l[6].length*10} XP</p></div>`;
+document.querySelectorAll(".tasks input").forEach(c=>c.onchange=()=>{st[cur+"-"+c.dataset.k]=c.checked;save();render()})}
+function render(){stats();map();det()}render();
+let C={};try{C=JSON.parse(localStorage.getItem("cov")||"{}")}catch(e){}
+function cover(){$("cvname").textContent=C.n||"Tu nombre completo";$("cvfi").textContent="Ficha: "+(C.f||"______");$("cvins").textContent="Instructor: "+(C.i||"______")}
+[["cvn","n"],["cvf","f"],["cvi","i"]].forEach(([id,k])=>{const e=$(id);e.value=C[k]||"";e.oninput=()=>{C[k]=e.value;try{localStorage.setItem("cov",JSON.stringify(C))}catch(x){}cover()}});
+$("cvd").textContent=new Date().toLocaleDateString("es-CO",{day:"numeric",month:"long",year:"numeric"});cover();
+const W=[["Elige tu nicho","Escoge un tema que conozcas (mascotas, hogar, hobbies) y un modelo: print on demand o producto digital."],["Investiga demanda","Usa Google Trends, Etsy y la IA para listar 20 ideas y quédate con 3."],["Crea 5 productos","Diseña con Canva e IA y revisa derechos de autor y marcas antes de usar un diseño."],["Abre tu tienda","Crea la cuenta en Etsy o Shopify y verifica comisiones o cuotas vigentes."],["Haz contenido","Graba o genera 5 videos cortos o imágenes del producto."],["Publica y comparte","Publica los listados y comparte en redes de forma orgánica."],["Revisa y decide","Mira visitas, clics y ventas. Anota qué cambiarías y elige: mejorar, cambiar o escalar."]];
+function plan(){$("plan").innerHTML=W.map((w,i)=>`<label class="day"><input type="checkbox" data-w="${i}" ${st["w"+i]?"checked":""}><b>Día ${i+1}: ${w[0]}</b><span class="mu">${w[1]}</span></label>`).join("");document.querySelectorAll("[data-w]").forEach(c=>c.onchange=()=>{st["w"+c.dataset.w]=c.checked;save()})}plan();
+$("cp").onclick=()=>{const t=$("ptxt").textContent;try{navigator.clipboard.writeText(t).then(()=>{$("cp").textContent="Copiado"})}catch(e){const r=document.createRange();r.selectNodeContents($("ptxt"));getSelection().removeAllRanges();getSelection().addRange(r);$("cp").textContent="Selecciona y copia (Ctrl+C)"}};
+</script>
+</body>
+</html>
